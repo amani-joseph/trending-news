@@ -1,4 +1,4 @@
-import urllib.request,json
+import urllib.request, json
 
 from .model import News
 
@@ -8,10 +8,12 @@ api_key = None
 # GETTING THE NEWS URL
 base_url = None
 
+
 def configure_request(app):
-    global api_key,base_url
+    global api_key, base_url
     api_key = app.config['NEWS_API_KEY']
     base_url = app.config['NEWS_API_BASE_URL']
+
 
 def get_news():
     '''
@@ -32,14 +34,15 @@ def get_news():
 
     return news_results
 
+
 def process_results(news_list):
     '''
     This function processes  the news results and transforms them into a list of objects
 
+    news_results = []
     Args:
         news_list: Alist of dictionaries that contain the news details
     '''
-    news_results = []
     for news_item in news_list:
         title = news_item.get('title')
         description = news_item.get('description')
@@ -47,8 +50,7 @@ def process_results(news_list):
         content = news_item.get('content')
         publishedAt = news_item.get('publishedAt')
 
-        news_object = News(title,description,urlToImage,content,publishedAt)
+        news_object = News(title, description, urlToImage, content, publishedAt)
 
         news_results.append(news_object)
     return news_results
-

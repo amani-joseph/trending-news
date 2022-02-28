@@ -1,7 +1,7 @@
 <!-- @format -->
 
 {% extends 'base.html' %} {% block content %}
-<h1 class="text-center"> TRENDING NEWS </h1>
+<h1 class="text-center"> TOP TRENDING NEWS </h1>
 <ul>
 	{% for article in articles %}
 	<div class="row">
@@ -10,7 +10,7 @@
 				<img src="{{article.urlToImage}}" alt="" />
 				<div class="card-body">
 					<h3 class="card-title">{{article.title}}</h3>
-					<p class="card-text lead">{{artilce.description}}</p>
+					<p class="card-text lead">{{article.description}}</p>
 					<p class="card-text fs-4">{{article.content}}</p>
 					<p class="card-text text-center display-6">{{article.publishedAt}}</p>
 				</div>
