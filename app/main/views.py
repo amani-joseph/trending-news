@@ -9,5 +9,6 @@ def index():
     This returns the index page
     """
     news = get_news()
+    # print(news)
     title = 'Trending News'
-    return render_template('index.html', title=title, article=news)
+    return render_template('index.html', title = title, article = news)

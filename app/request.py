@@ -17,7 +17,7 @@ def configure_request(app):
 
 def get_news():
     '''
-    This will get the JSON reponse to the URL request
+    This will get the JSON response to the URL request
     '''
     get_news_url = base_url.format(api_key)
 
@@ -29,20 +29,23 @@ def get_news():
 
         if get_news_response['articles']:
             news_results_list = get_news_response['articles']
-            print(news_results_list)
             news_results = process_results(news_results_list)
+            # print(news_results)
 
     return news_results
+
 
 
 def process_results(news_list):
     '''
     This function processes  the news results and transforms them into a list of objects
 
-    news_results = []
+    
     Args:
-        news_list: Alist of dictionaries that contain the news details
+        news_list: A list of dictionaries that contain the news details
     '''
+    news_results = []
+    
     for news_item in news_list:
         title = news_item.get('title')
         description = news_item.get('description')
@@ -53,4 +56,5 @@ def process_results(news_list):
         news_object = News(title, description, urlToImage, content, publishedAt)
 
         news_results.append(news_object)
+        # print(news_results)
     return news_results

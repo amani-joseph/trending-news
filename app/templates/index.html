@@ -1,6 +1,7 @@
 <!-- @format -->
 
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+{% block content %}
 <h1 class="text-center"> TOP TRENDING NEWS </h1>
 <ul>
 	{% for article in articles %}
@@ -19,3 +20,4 @@
 	</div>
 	{% endfor %}
 </ul>
+{% endblock %}
