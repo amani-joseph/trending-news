@@ -24,11 +24,12 @@ def get_news():
     with urllib.request.urlopen(get_news_url) as url:
         get_news_data = url.read()
         get_news_response = json.loads(get_news_data)
-
+        # print(get_news_response)
         news_results = None
 
         if get_news_response['articles']:
             news_results_list = get_news_response['articles']
+            # print(news_results_list)
             news_results = process_results(news_results_list)
             # print(news_results)
 
@@ -43,6 +44,10 @@ def process_results(news_list):
     
     Args:
         news_list: A list of dictionaries that contain the news details
+        
+    Returns :
+        news_results: A list of news objects
+    
     '''
     news_results = []
     
@@ -54,7 +59,11 @@ def process_results(news_list):
         publishedAt = news_item.get('publishedAt')
 
         news_object = News(title, description, urlToImage, content, publishedAt)
+        # for k,v in news_object.items():
+        #          print(k, v)
 
         news_results.append(news_object)
         # print(news_results)
     return news_results
+    
+    # print(news_results)
