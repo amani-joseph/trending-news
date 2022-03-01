@@ -2,8 +2,6 @@
 
 {% import 'macros.html' as macro %} {% extends 'base.html' %} {% block content
 %}
-<h1 class="text-center"> TOP TRENDING NEWS </h1>
-<ul>
-	{{macro.display_news(article)}}
-</ul>
+<h1 class="text-center text-white m-4"> TOP TRENDING NEWS </h1>
+<div class="d-flex flex-wrap"> {{macro.display_news(article)}} </div>
 {% endblock %}
