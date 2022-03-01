@@ -29,12 +29,11 @@ def get_news():
 
         if get_news_response['articles']:
             news_results_list = get_news_response['articles']
-            # print(news_results_list)
+            print(news_results_list)
             news_results = process_results(news_results_list)
-            # print(news_results)
+            # print(list(news_results))
 
     return news_results
-
 
 
 def process_results(news_list):
@@ -50,20 +49,21 @@ def process_results(news_list):
     
     '''
     news_results = []
-    
+
     for news_item in news_list:
         title = news_item.get('title')
         description = news_item.get('description')
         urlToImage = news_item.get('urlToImage')
         content = news_item.get('content')
         publishedAt = news_item.get('publishedAt')
+        url = news_item.get('url')
 
-        news_object = News(title, description, urlToImage, content, publishedAt)
+        news_object = News(title, description, urlToImage, content, publishedAt, url)
         # for k,v in news_object.items():
         #          print(k, v)
 
         news_results.append(news_object)
         # print(news_results)
     return news_results
-    
+
     # print(news_results)

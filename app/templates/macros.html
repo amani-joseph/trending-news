@@ -8,7 +8,14 @@
                     <h3 class="card-title">{{article.title}}</h3>
                     <p class="card-text lead">{{article.description}}</p>
                     <p class="card-text fs-4">{{article.content}}</p>
-                    <p class="card-text text-center display-6">{{article.publishedAt}}</p>
+                    <p class="card-text text-center">{{article.publishedAt}}</p>
+                    <a href="{{article.url}}">
+<!--                        <button type="button" class="btn btn-info">Go to article</button>-->
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                              <button class="btn btn-primary" type="button">Go to article</button>
+                        </div>
+                    </a>
+
                 </div>
             </div>
         </div>
